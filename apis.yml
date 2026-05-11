@@ -1,0 +1,70 @@
+aid: cyberark-identity
+name: CyberArk Identity
+description: >-
+  CyberArk Identity is a SaaS identity and access management platform
+  offering single sign-on (SSO), multi-factor authentication (MFA),
+  adaptive access, lifecycle management, directory services, and
+  privileged access controls for workforce and customer identities.
+  The platform integrates with thousands of applications and supports
+  enterprise zero-trust strategies. CyberArk Identity exposes REST APIs
+  for authentication, authorization, user and role management, and
+  policy operations, authenticated via OAuth 2.0 (including
+  client_credentials) or session tokens obtained via
+  /Security/StartAuthentication and /Security/AdvanceAuthentication.
+type: Index
+image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+tags:
+  - Identity
+  - Access Management
+  - IAM
+  - Single Sign-On
+  - SSO
+  - Multi-Factor Authentication
+  - OAuth
+  - Zero Trust
+url: >-
+  https://raw.githubusercontent.com/api-evangelist/cyberark-identity/refs/heads/main/apis.yml
+created: '2026-05-11'
+modified: '2026-05-11'
+specificationVersion: '0.19'
+apis:
+  - aid: cyberark-identity:identity-api
+    name: CyberArk Identity API
+    description: >-
+      REST API for CyberArk Identity covering authentication,
+      authorization, OAuth 2.0 token endpoints, user and role management,
+      directory services, application provisioning, and policy operations.
+      Supports OAuth 2.0 flows including client_credentials for
+      non-interactive API access, plus session-based authentication via
+      /Security/StartAuthentication and /Security/AdvanceAuthentication.
+    humanURL: https://api-docs-identity.cyberark.com/docs/identity-api-reference/before-you-begin
+    baseURL: https://<tenant>.id.cyberark.cloud
+    tags:
+      - Identity
+      - OAuth
+      - Authentication
+      - Authorization
+      - User Management
+    properties:
+      - type: Documentation
+        url: https://api-docs-identity.cyberark.com/docs/identity-api-reference/before-you-begin
+      - type: OAuth 2.0 Overview
+        url: https://docs.cyberark.com/identity/latest/en/content/developer/oauth/about-oauth.htm
+      - type: ISPSS API Authentication
+        url: https://docs.cyberark.com/ispss-access/latest/en/content/ispss/ispss-api-authentication.htm
+      - type: Developer Overview
+        url: https://docs.cyberark.com/identity/Latest/en/Content/Developer/OverviewofAPIs.htm
+common:
+  - type: Website
+    url: https://www.cyberark.com/products/identity-management/
+  - type: Documentation
+    url: https://docs.cyberark.com/identity/latest/en/
+  - type: API Docs
+    url: https://api-docs-identity.cyberark.com/
+  - type: Pricing
+    url: https://www.cyberark.com/contact-us/
+  - type: Sign Up
+    url: https://www.cyberark.com/try-buy/
+maintainers:
+  - FN: Kin Lane
+    email: kin@apievangelist.com
