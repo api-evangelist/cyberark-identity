@@ -63,7 +63,7 @@ common:
     url: https://api-docs-identity.cyberark.com/
   - type: Pricing
     url: https://www.cyberark.com/contact-us/
-  - type: Sign Up
+  - type: SignUp
     url: https://www.cyberark.com/try-buy/
 maintainers:
   - FN: Kin Lane
