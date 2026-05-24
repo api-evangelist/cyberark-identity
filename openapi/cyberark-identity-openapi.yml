@@ -1,0 +1,517 @@
+openapi: 3.1.0
+info:
+  title: CyberArk Identity REST API
+  version: 2026-05
+  description: |
+    CyberArk Identity (formerly Idaptive) REST API. Provides
+    authentication, OAuth/OIDC token issuance, user and organization
+    management, extended user attributes/schema, and SCIM v2 user/group
+    provisioning against a CyberArk Identity tenant.
+
+    Best-effort spec derived from publicly indexed CyberArk Identity
+    developer documentation (api-docs.cyberark.com, docs.cyberark.com,
+    and third-party API directory listings). The authoritative reference
+    is https://api-docs.cyberark.com/identity-docs-api/docs/identity-apis.
+
+    The host should be set to your CyberArk Identity tenant URL —
+    e.g. https://aab1234.id.cyberark.cloud.
+  contact:
+    name: CyberArk Developer Hub
+    url: https://api-docs.cyberark.com/identity-docs-api/docs/identity-apis
+  license:
+    name: Proprietary
+externalDocs:
+  description: CyberArk Identity API reference
+  url: https://api-docs.cyberark.com/identity-docs-api/docs/identity-apis
+servers:
+  - url: https://{tenant}.id.cyberark.cloud
+    description: CyberArk Identity tenant
+    variables:
+      tenant:
+        default: aab1234
+        description: Your CyberArk Identity tenant prefix.
+security:
+  - BearerAuth: []
+tags:
+  - name: Authentication
+  - name: OAuth
+  - name: UserMgmt
+  - name: CDirectoryService
+  - name: Org
+  - name: ExtData
+  - name: SCIM
+paths:
+  /Security/StartAuthentication:
+    post:
+      tags: [Authentication]
+      summary: Begin an interactive authentication session
+      description: |
+        Starts an authentication session for a user identified by username
+        and tenant. Returns the available authentication mechanisms; the
+        client must complete the flow with /Security/AdvanceAuthentication
+        within five minutes.
+      security: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [User]
+              properties:
+                User: { type: string, description: Username (UPN). }
+                Version: { type: string, example: '1.0' }
+      responses:
+        '200':
+          description: Authentication session started
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/AuthChallengeResult' }
+  /Security/AdvanceAuthentication:
+    post:
+      tags: [Authentication]
+      summary: Submit a mechanism response and advance the auth session
+      security: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [SessionId, MechanismId]
+              properties:
+                SessionId: { type: string }
+                MechanismId: { type: string }
+                Answer: { type: string }
+                Action: { type: string, example: Answer }
+      responses:
+        '200':
+          description: Auth advanced (challenge or success)
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/AuthChallengeResult' }
+  /Security/Logout:
+    post:
+      tags: [Authentication]
+      summary: Log out the current session
+      responses:
+        '200': { description: Logged out }
+  /OAuth2/Token/{appId}:
+    post:
+      tags: [OAuth]
+      summary: Issue an OAuth 2.0 token for a registered OAuth app
+      parameters:
+        - in: path
+          name: appId
+          required: true
+          schema: { type: string }
+      security:
+        - BasicAuth: []
+      requestBody:
+        required: true
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              required: [grant_type]
+              properties:
+                grant_type:
+                  type: string
+                  enum: [client_credentials, password, authorization_code, refresh_token]
+                scope: { type: string }
+                username: { type: string }
+                password: { type: string }
+                code: { type: string }
+                refresh_token: { type: string }
+      responses:
+        '200':
+          description: Access token issued
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/OAuthToken' }
+  /UserMgmt/GetUserInfo:
+    post:
+      tags: [UserMgmt]
+      summary: Retrieve detailed information for a user
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                ID: { type: string }
+      responses:
+        '200':
+          description: User info
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/UserMgmtResult' }
+  /UserMgmt/ChangeUserAttributes:
+    post:
+      tags: [UserMgmt]
+      summary: Update user attribute values
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema: { type: object }
+      responses:
+        '200':
+          description: Attributes updated
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/UserMgmtResult' }
+  /UserMgmt/InviteUsers:
+    post:
+      tags: [UserMgmt]
+      summary: Send system invitations to one or more users
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                Entities:
+                  type: array
+                  items:
+                    type: object
+                    properties:
+                      ID: { type: string }
+                      Type: { type: string, example: User }
+      responses:
+        '200':
+          description: Invitations sent
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/UserMgmtResult' }
+  /UserMgmt/SetCloudLock:
+    post:
+      tags: [UserMgmt]
+      summary: Lock or unlock a cloud user account
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                ID: { type: string }
+                Lock: { type: boolean }
+      responses:
+        '200':
+          description: Lock state updated
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/UserMgmtResult' }
+  /UserMgmt/RemoveUsers:
+    post:
+      tags: [UserMgmt]
+      summary: Delete cloud users
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                Users:
+                  type: array
+                  items: { type: string }
+      responses:
+        '200':
+          description: Users removed
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/UserMgmtResult' }
+  /CDirectoryService/CreateUser:
+    post:
+      tags: [CDirectoryService]
+      summary: Create a cloud directory user
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema: { $ref: '#/components/schemas/User' }
+      responses:
+        '200':
+          description: User created
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/UserMgmtResult' }
+  /CDirectoryService/GetUser:
+    post:
+      tags: [CDirectoryService]
+      summary: Fetch a user by ID
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                ID: { type: string }
+      responses:
+        '200':
+          description: User
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/UserMgmtResult' }
+  /CDirectoryService/ChangeUser:
+    post:
+      tags: [CDirectoryService]
+      summary: Update a cloud user profile
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema: { $ref: '#/components/schemas/User' }
+      responses:
+        '200':
+          description: User updated
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/UserMgmtResult' }
+  /Org/Create:
+    post:
+      tags: [Org]
+      summary: Create an organization
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema: { $ref: '#/components/schemas/Org' }
+      responses:
+        '200':
+          description: Organization created
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/UserMgmtResult' }
+  /Org/ListAll:
+    post:
+      tags: [Org]
+      summary: List all organizations
+      responses:
+        '200':
+          description: Organizations
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/UserMgmtResult' }
+  /ExtData/GetColumns:
+    post:
+      tags: [ExtData]
+      summary: List extended user attribute columns and values
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                Table: { type: string }
+      responses:
+        '200':
+          description: Columns
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/UserMgmtResult' }
+  /scim/v2/Users:
+    get:
+      tags: [SCIM]
+      summary: Query SCIM users
+      parameters:
+        - in: query
+          name: filter
+          schema: { type: string }
+        - in: query
+          name: startIndex
+          schema: { type: integer }
+        - in: query
+          name: count
+          schema: { type: integer }
+      responses:
+        '200':
+          description: SCIM list response
+          content:
+            application/scim+json:
+              schema: { $ref: '#/components/schemas/ScimListResponse' }
+    post:
+      tags: [SCIM]
+      summary: Create a SCIM user
+      requestBody:
+        required: true
+        content:
+          application/scim+json:
+            schema: { $ref: '#/components/schemas/ScimUser' }
+      responses:
+        '201':
+          description: User created
+          content:
+            application/scim+json:
+              schema: { $ref: '#/components/schemas/ScimUser' }
+  /scim/v2/Users/{id}:
+    parameters:
+      - in: path
+        name: id
+        required: true
+        schema: { type: string }
+    get:
+      tags: [SCIM]
+      summary: Get a SCIM user
+      responses:
+        '200':
+          description: SCIM user
+          content:
+            application/scim+json:
+              schema: { $ref: '#/components/schemas/ScimUser' }
+    put:
+      tags: [SCIM]
+      summary: Replace a SCIM user
+      requestBody:
+        required: true
+        content:
+          application/scim+json:
+            schema: { $ref: '#/components/schemas/ScimUser' }
+      responses:
+        '200':
+          description: SCIM user replaced
+          content:
+            application/scim+json:
+              schema: { $ref: '#/components/schemas/ScimUser' }
+    delete:
+      tags: [SCIM]
+      summary: Delete a SCIM user
+      responses:
+        '204': { description: User deleted }
+  /scim/v2/Groups:
+    get:
+      tags: [SCIM]
+      summary: Query SCIM groups
+      responses:
+        '200':
+          description: SCIM groups list
+          content:
+            application/scim+json:
+              schema: { $ref: '#/components/schemas/ScimListResponse' }
+  /scim/v2/Groups/{id}:
+    parameters:
+      - in: path
+        name: id
+        required: true
+        schema: { type: string }
+    delete:
+      tags: [SCIM]
+      summary: Delete a SCIM group
+      responses:
+        '204': { description: Group deleted }
+components:
+  securitySchemes:
+    BearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+      description: OAuth 2.0 / OIDC bearer token issued by /OAuth2/Token/{appId}.
+    BasicAuth:
+      type: http
+      scheme: basic
+      description: HTTP Basic with OAuth client credentials, used only for /OAuth2/Token/{appId}.
+  schemas:
+    AuthChallengeResult:
+      type: object
+      properties:
+        success: { type: boolean }
+        Result:
+          type: object
+          properties:
+            SessionId: { type: string }
+            TenantId: { type: string }
+            Challenges:
+              type: array
+              items:
+                type: object
+                properties:
+                  Mechanisms:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        Name: { type: string }
+                        MechanismId: { type: string }
+                        AnswerType: { type: string }
+            Summary: { type: string }
+        Message: { type: string, nullable: true }
+        Exception: { type: string, nullable: true }
+        ErrorCode: { type: string, nullable: true }
+        ErrorID: { type: string, nullable: true }
+    OAuthToken:
+      type: object
+      properties:
+        access_token: { type: string }
+        token_type: { type: string, example: Bearer }
+        expires_in: { type: integer }
+        refresh_token: { type: string }
+        scope: { type: string }
+    UserMgmtResult:
+      type: object
+      properties:
+        success: { type: boolean }
+        Result: { type: object, additionalProperties: true }
+        Message: { type: string, nullable: true }
+        Exception: { type: string, nullable: true }
+        ErrorCode: { type: string, nullable: true }
+        ErrorID: { type: string, nullable: true }
+    User:
+      type: object
+      properties:
+        Name: { type: string }
+        Mail: { type: string, format: email }
+        DisplayName: { type: string }
+        Password: { type: string }
+        ForcePasswordChangeNextLogin: { type: boolean }
+        SendEmailInvite: { type: boolean }
+        Description: { type: string }
+        OfficeNumber: { type: string }
+        HomeNumber: { type: string }
+        MobileNumber: { type: string }
+    Org:
+      type: object
+      properties:
+        Name: { type: string }
+        Description: { type: string }
+    ScimUser:
+      type: object
+      properties:
+        schemas:
+          type: array
+          items: { type: string }
+          example: ["urn:ietf:params:scim:schemas:core:2.0:User"]
+        userName: { type: string }
+        displayName: { type: string }
+        active: { type: boolean }
+        emails:
+          type: array
+          items:
+            type: object
+            properties:
+              value: { type: string }
+              primary: { type: boolean }
+              type: { type: string }
+        name:
+          type: object
+          properties:
+            givenName: { type: string }
+            familyName: { type: string }
+    ScimListResponse:
+      type: object
+      properties:
+        schemas:
+          type: array
+          items: { type: string }
+          example: ["urn:ietf:params:scim:api:messages:2.0:ListResponse"]
+        totalResults: { type: integer }
+        startIndex: { type: integer }
+        itemsPerPage: { type: integer }
+        Resources:
+          type: array
+          items: { type: object }
