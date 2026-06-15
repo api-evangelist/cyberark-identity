@@ -1,0 +1,456 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "CyberArk Identity REST API",
+    "version": "2026-05"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Authentication",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Begin an interactive authentication session",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{tenant}.id.cyberark.cloud/Security/StartAuthentication",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Starts an authentication session for a user identified by username\nand tenant. Returns the available authentication mechanisms; the\nclient must complete the flow with /Security/AdvanceAuthentication\nwithin five minutes.\n"
+        },
+        {
+          "info": {
+            "name": "Submit a mechanism response and advance the auth session",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{tenant}.id.cyberark.cloud/Security/AdvanceAuthentication",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Submit a mechanism response and advance the auth session"
+        },
+        {
+          "info": {
+            "name": "Log out the current session",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{tenant}.id.cyberark.cloud/Security/Logout"
+          },
+          "docs": "Log out the current session"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "OAuth",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Issue an OAuth 2.0 token for a registered OAuth app",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{tenant}.id.cyberark.cloud/OAuth2/Token/:appId",
+            "params": [
+              {
+                "name": "appId",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "form-urlencoded",
+              "data": [
+                {
+                  "name": "grant_type",
+                  "value": ""
+                },
+                {
+                  "name": "scope",
+                  "value": ""
+                },
+                {
+                  "name": "username",
+                  "value": ""
+                },
+                {
+                  "name": "password",
+                  "value": ""
+                },
+                {
+                  "name": "code",
+                  "value": ""
+                },
+                {
+                  "name": "refresh_token",
+                  "value": ""
+                }
+              ]
+            },
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "Issue an OAuth 2.0 token for a registered OAuth app"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "UserMgmt",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Retrieve detailed information for a user",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{tenant}.id.cyberark.cloud/UserMgmt/GetUserInfo",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Retrieve detailed information for a user"
+        },
+        {
+          "info": {
+            "name": "Update user attribute values",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{tenant}.id.cyberark.cloud/UserMgmt/ChangeUserAttributes",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update user attribute values"
+        },
+        {
+          "info": {
+            "name": "Send system invitations to one or more users",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{tenant}.id.cyberark.cloud/UserMgmt/InviteUsers",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Send system invitations to one or more users"
+        },
+        {
+          "info": {
+            "name": "Lock or unlock a cloud user account",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{tenant}.id.cyberark.cloud/UserMgmt/SetCloudLock",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Lock or unlock a cloud user account"
+        },
+        {
+          "info": {
+            "name": "Delete cloud users",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{tenant}.id.cyberark.cloud/UserMgmt/RemoveUsers",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Delete cloud users"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "CDirectoryService",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Create a cloud directory user",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{tenant}.id.cyberark.cloud/CDirectoryService/CreateUser",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create a cloud directory user"
+        },
+        {
+          "info": {
+            "name": "Fetch a user by ID",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{tenant}.id.cyberark.cloud/CDirectoryService/GetUser",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Fetch a user by ID"
+        },
+        {
+          "info": {
+            "name": "Update a cloud user profile",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{tenant}.id.cyberark.cloud/CDirectoryService/ChangeUser",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update a cloud user profile"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Org",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Create an organization",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{tenant}.id.cyberark.cloud/Org/Create",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create an organization"
+        },
+        {
+          "info": {
+            "name": "List all organizations",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{tenant}.id.cyberark.cloud/Org/ListAll"
+          },
+          "docs": "List all organizations"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "ExtData",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List extended user attribute columns and values",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{tenant}.id.cyberark.cloud/ExtData/GetColumns",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "List extended user attribute columns and values"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "SCIM",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Query SCIM users",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{tenant}.id.cyberark.cloud/scim/v2/Users",
+            "params": [
+              {
+                "name": "filter",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "startIndex",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "count",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Query SCIM users"
+        },
+        {
+          "info": {
+            "name": "Create a SCIM user",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{tenant}.id.cyberark.cloud/scim/v2/Users",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create a SCIM user"
+        },
+        {
+          "info": {
+            "name": "Get a SCIM user",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{tenant}.id.cyberark.cloud/scim/v2/Users/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get a SCIM user"
+        },
+        {
+          "info": {
+            "name": "Replace a SCIM user",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://{tenant}.id.cyberark.cloud/scim/v2/Users/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Replace a SCIM user"
+        },
+        {
+          "info": {
+            "name": "Delete a SCIM user",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://{tenant}.id.cyberark.cloud/scim/v2/Users/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Delete a SCIM user"
+        },
+        {
+          "info": {
+            "name": "Query SCIM groups",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{tenant}.id.cyberark.cloud/scim/v2/Groups"
+          },
+          "docs": "Query SCIM groups"
+        },
+        {
+          "info": {
+            "name": "Delete a SCIM group",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://{tenant}.id.cyberark.cloud/scim/v2/Groups/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Delete a SCIM group"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
