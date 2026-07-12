@@ -55,6 +55,12 @@ apis:
       - type: Developer Overview
         url: https://docs.cyberark.com/identity/Latest/en/Content/Developer/OverviewofAPIs.htm
 common:
+  - type: TrustCenter
+    url: security/cyberark-identity-trust-center.yml
+  - type: DomainSecurity
+    url: security/cyberark-identity-domain-security.yml
+  - type: Authentication
+    url: authentication/cyberark-identity-authentication.yml
   - type: Website
     url: https://www.cyberark.com/products/identity-management/
   - type: Documentation
@@ -65,6 +71,8 @@ common:
     url: https://www.cyberark.com/contact-us/
   - type: Signup
     url: https://www.cyberark.com/try-buy/
+  - url: https://www.cyberark.com/feed/
+    type: Blog
 maintainers:
   - FN: Kin Lane
     email: kin@apievangelist.com
