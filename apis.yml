@@ -55,6 +55,8 @@ apis:
       - type: Developer Overview
         url: https://docs.cyberark.com/identity/Latest/en/Content/Developer/OverviewofAPIs.htm
 common:
+  - type: AgenticAccess
+    url: agentic-access/cyberark-identity-agentic-access.yml
   - type: TrustCenter
     url: security/cyberark-identity-trust-center.yml
   - type: DomainSecurity
