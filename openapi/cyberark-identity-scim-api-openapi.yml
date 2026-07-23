@@ -1,0 +1,221 @@
+openapi: 3.1.0
+info:
+  title: CyberArk Identity REST Authentication SCIM API
+  version: 2026-05
+  description: 'CyberArk Identity (formerly Idaptive) REST API. Provides
+
+    authentication, OAuth/OIDC token issuance, user and organization
+
+    management, extended user attributes/schema, and SCIM v2 user/group
+
+    provisioning against a CyberArk Identity tenant.
+
+
+    Best-effort spec derived from publicly indexed CyberArk Identity
+
+    developer documentation (api-docs.cyberark.com, docs.cyberark.com,
+
+    and third-party API directory listings). The authoritative reference
+
+    is https://api-docs.cyberark.com/identity-docs-api/docs/identity-apis.
+
+
+    The host should be set to your CyberArk Identity tenant URL —
+
+    e.g. https://aab1234.id.cyberark.cloud.
+
+    '
+  contact:
+    name: CyberArk Developer Hub
+    url: https://api-docs.cyberark.com/identity-docs-api/docs/identity-apis
+  license:
+    name: Proprietary
+servers:
+- url: https://{tenant}.id.cyberark.cloud
+  description: CyberArk Identity tenant
+  variables:
+    tenant:
+      default: aab1234
+      description: Your CyberArk Identity tenant prefix.
+security:
+- BearerAuth: []
+tags:
+- name: SCIM
+paths:
+  /scim/v2/Users:
+    get:
+      tags:
+      - SCIM
+      summary: Query SCIM users
+      parameters:
+      - in: query
+        name: filter
+        schema:
+          type: string
+      - in: query
+        name: startIndex
+        schema:
+          type: integer
+      - in: query
+        name: count
+        schema:
+          type: integer
+      responses:
+        '200':
+          description: SCIM list response
+          content:
+            application/scim+json:
+              schema:
+                $ref: '#/components/schemas/ScimListResponse'
+    post:
+      tags:
+      - SCIM
+      summary: Create a SCIM user
+      requestBody:
+        required: true
+        content:
+          application/scim+json:
+            schema:
+              $ref: '#/components/schemas/ScimUser'
+      responses:
+        '201':
+          description: User created
+          content:
+            application/scim+json:
+              schema:
+                $ref: '#/components/schemas/ScimUser'
+  /scim/v2/Users/{id}:
+    parameters:
+    - in: path
+      name: id
+      required: true
+      schema:
+        type: string
+    get:
+      tags:
+      - SCIM
+      summary: Get a SCIM user
+      responses:
+        '200':
+          description: SCIM user
+          content:
+            application/scim+json:
+              schema:
+                $ref: '#/components/schemas/ScimUser'
+    put:
+      tags:
+      - SCIM
+      summary: Replace a SCIM user
+      requestBody:
+        required: true
+        content:
+          application/scim+json:
+            schema:
+              $ref: '#/components/schemas/ScimUser'
+      responses:
+        '200':
+          description: SCIM user replaced
+          content:
+            application/scim+json:
+              schema:
+                $ref: '#/components/schemas/ScimUser'
+    delete:
+      tags:
+      - SCIM
+      summary: Delete a SCIM user
+      responses:
+        '204':
+          description: User deleted
+  /scim/v2/Groups:
+    get:
+      tags:
+      - SCIM
+      summary: Query SCIM groups
+      responses:
+        '200':
+          description: SCIM groups list
+          content:
+            application/scim+json:
+              schema:
+                $ref: '#/components/schemas/ScimListResponse'
+  /scim/v2/Groups/{id}:
+    parameters:
+    - in: path
+      name: id
+      required: true
+      schema:
+        type: string
+    delete:
+      tags:
+      - SCIM
+      summary: Delete a SCIM group
+      responses:
+        '204':
+          description: Group deleted
+components:
+  schemas:
+    ScimUser:
+      type: object
+      properties:
+        schemas:
+          type: array
+          items:
+            type: string
+          example:
+          - urn:ietf:params:scim:schemas:core:2.0:User
+        userName:
+          type: string
+        displayName:
+          type: string
+        active:
+          type: boolean
+        emails:
+          type: array
+          items:
+            type: object
+            properties:
+              value:
+                type: string
+              primary:
+                type: boolean
+              type:
+                type: string
+        name:
+          type: object
+          properties:
+            givenName:
+              type: string
+            familyName:
+              type: string
+    ScimListResponse:
+      type: object
+      properties:
+        schemas:
+          type: array
+          items:
+            type: string
+          example:
+          - urn:ietf:params:scim:api:messages:2.0:ListResponse
+        totalResults:
+          type: integer
+        startIndex:
+          type: integer
+        itemsPerPage:
+          type: integer
+        Resources:
+          type: array
+          items:
+            type: object
+  securitySchemes:
+    BearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+      description: OAuth 2.0 / OIDC bearer token issued by /OAuth2/Token/{appId}.
+    BasicAuth:
+      type: http
+      scheme: basic
+      description: HTTP Basic with OAuth client credentials, used only for /OAuth2/Token/{appId}.
+externalDocs:
+  description: CyberArk Identity API reference
+  url: https://api-docs.cyberark.com/identity-docs-api/docs/identity-apis

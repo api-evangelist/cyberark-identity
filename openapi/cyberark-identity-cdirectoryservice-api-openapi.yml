@@ -1,0 +1,160 @@
+openapi: 3.1.0
+info:
+  title: CyberArk Identity REST Authentication CDirectoryService API
+  version: 2026-05
+  description: 'CyberArk Identity (formerly Idaptive) REST API. Provides
+
+    authentication, OAuth/OIDC token issuance, user and organization
+
+    management, extended user attributes/schema, and SCIM v2 user/group
+
+    provisioning against a CyberArk Identity tenant.
+
+
+    Best-effort spec derived from publicly indexed CyberArk Identity
+
+    developer documentation (api-docs.cyberark.com, docs.cyberark.com,
+
+    and third-party API directory listings). The authoritative reference
+
+    is https://api-docs.cyberark.com/identity-docs-api/docs/identity-apis.
+
+
+    The host should be set to your CyberArk Identity tenant URL —
+
+    e.g. https://aab1234.id.cyberark.cloud.
+
+    '
+  contact:
+    name: CyberArk Developer Hub
+    url: https://api-docs.cyberark.com/identity-docs-api/docs/identity-apis
+  license:
+    name: Proprietary
+servers:
+- url: https://{tenant}.id.cyberark.cloud
+  description: CyberArk Identity tenant
+  variables:
+    tenant:
+      default: aab1234
+      description: Your CyberArk Identity tenant prefix.
+security:
+- BearerAuth: []
+tags:
+- name: CDirectoryService
+paths:
+  /CDirectoryService/CreateUser:
+    post:
+      tags:
+      - CDirectoryService
+      summary: Create a cloud directory user
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/User'
+      responses:
+        '200':
+          description: User created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UserMgmtResult'
+  /CDirectoryService/GetUser:
+    post:
+      tags:
+      - CDirectoryService
+      summary: Fetch a user by ID
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                ID:
+                  type: string
+      responses:
+        '200':
+          description: User
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UserMgmtResult'
+  /CDirectoryService/ChangeUser:
+    post:
+      tags:
+      - CDirectoryService
+      summary: Update a cloud user profile
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/User'
+      responses:
+        '200':
+          description: User updated
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UserMgmtResult'
+components:
+  schemas:
+    UserMgmtResult:
+      type: object
+      properties:
+        success:
+          type: boolean
+        Result:
+          type: object
+          additionalProperties: true
+        Message:
+          type: string
+          nullable: true
+        Exception:
+          type: string
+          nullable: true
+        ErrorCode:
+          type: string
+          nullable: true
+        ErrorID:
+          type: string
+          nullable: true
+    User:
+      type: object
+      properties:
+        Name:
+          type: string
+        Mail:
+          type: string
+          format: email
+        DisplayName:
+          type: string
+        Password:
+          type: string
+        ForcePasswordChangeNextLogin:
+          type: boolean
+        SendEmailInvite:
+          type: boolean
+        Description:
+          type: string
+        OfficeNumber:
+          type: string
+        HomeNumber:
+          type: string
+        MobileNumber:
+          type: string
+  securitySchemes:
+    BearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+      description: OAuth 2.0 / OIDC bearer token issued by /OAuth2/Token/{appId}.
+    BasicAuth:
+      type: http
+      scheme: basic
+      description: HTTP Basic with OAuth client credentials, used only for /OAuth2/Token/{appId}.
+externalDocs:
+  description: CyberArk Identity API reference
+  url: https://api-docs.cyberark.com/identity-docs-api/docs/identity-apis
