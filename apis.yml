@@ -12,7 +12,19 @@ description: >-
   client_credentials) or session tokens obtained via
   /Security/StartAuthentication and /Security/AdvanceAuthentication.
 type: Index
-image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+accessModel:
+  pricing: unknown
+  onboarding: self-serve
+  trial: false
+  try_now: false
+  public: false
+  label: Self-serve signup
+  confidence: medium
+  source:
+  - authentication
+  generated: '2026-07-22'
+  method: derived
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/cyberark-identity.png
 tags:
   - Identity
   - Access Management
@@ -28,32 +40,101 @@ created: '2026-05-11'
 modified: '2026-05-11'
 specificationVersion: '0.19'
 apis:
-  - aid: cyberark-identity:identity-api
-    name: CyberArk Identity API
-    description: >-
-      REST API for CyberArk Identity covering authentication,
-      authorization, OAuth 2.0 token endpoints, user and role management,
-      directory services, application provisioning, and policy operations.
-      Supports OAuth 2.0 flows including client_credentials for
-      non-interactive API access, plus session-based authentication via
-      /Security/StartAuthentication and /Security/AdvanceAuthentication.
-    humanURL: https://api-docs-identity.cyberark.com/docs/identity-api-reference/before-you-begin
-    baseURL: https://<tenant>.id.cyberark.cloud
-    tags:
-      - Identity
-      - OAuth
-      - Authentication
-      - Authorization
-      - User Management
-    properties:
-      - type: Documentation
-        url: https://api-docs-identity.cyberark.com/docs/identity-api-reference/before-you-begin
-      - type: OAuth 2.0 Overview
-        url: https://docs.cyberark.com/identity/latest/en/content/developer/oauth/about-oauth.htm
-      - type: ISPSS API Authentication
-        url: https://docs.cyberark.com/ispss-access/latest/en/content/ispss/ispss-api-authentication.htm
-      - type: Developer Overview
-        url: https://docs.cyberark.com/identity/Latest/en/Content/Developer/OverviewofAPIs.htm
+- aid: cyberark-identity:identity-api
+  name: CyberArk Identity API
+  description: >-
+    REST API for CyberArk Identity covering authentication, authorization, OAuth 2.0 token endpoints,
+    user and role management, directory services, application provisioning, and policy operations. Supports
+    OAuth 2.0 flows including client_credentials for non-interactive API access, plus session-based authentication
+    via /Security/StartAuthentication and /Security/AdvanceAuthentication.
+  humanURL: https://api-docs-identity.cyberark.com/docs/identity-api-reference/before-you-begin
+  baseURL: https://<tenant>.id.cyberark.cloud
+  tags:
+  - Identity
+  - OAuth
+  - Authentication
+  - Authorization
+  - User Management
+  properties:
+  - type: Documentation
+    url: https://api-docs-identity.cyberark.com/docs/identity-api-reference/before-you-begin
+  - type: OAuth 2.0 Overview
+    url: https://docs.cyberark.com/identity/latest/en/content/developer/oauth/about-oauth.htm
+  - type: ISPSS API Authentication
+    url: >-
+      https://docs.cyberark.com/ispss-access/latest/en/content/ispss/ispss-api-authentication.htm
+  - type: Developer Overview
+    url: https://docs.cyberark.com/identity/Latest/en/Content/Developer/OverviewofAPIs.htm
+- aid: cyberark-identity:cyberark-identity-authentication-api
+  name: CyberArk Identity Authentication API
+  description: The Authentication API from CyberArk Identity — 3 operation(s) for authentication.
+  humanURL: https://api-docs-identity.cyberark.com/docs/identity-api-reference/before-you-begin
+  baseURL: https://<tenant>.id.cyberark.cloud
+  tags:
+  - Authentication
+  properties:
+  - type: OpenAPI
+    url: openapi/cyberark-identity-authentication-api-openapi.yml
+- aid: cyberark-identity:cyberark-identity-cdirectoryservice-api
+  name: CyberArk Identity CDirectoryService API
+  description: The CDirectoryService API from CyberArk Identity — 3 operation(s) for cdirectoryservice.
+  humanURL: https://api-docs-identity.cyberark.com/docs/identity-api-reference/before-you-begin
+  baseURL: https://<tenant>.id.cyberark.cloud
+  tags:
+  - CDirectoryService
+  properties:
+  - type: OpenAPI
+    url: openapi/cyberark-identity-cdirectoryservice-api-openapi.yml
+- aid: cyberark-identity:cyberark-identity-extdata-api
+  name: CyberArk Identity ExtData API
+  description: The ExtData API from CyberArk Identity — 1 operation(s) for extdata.
+  humanURL: https://api-docs-identity.cyberark.com/docs/identity-api-reference/before-you-begin
+  baseURL: https://<tenant>.id.cyberark.cloud
+  tags:
+  - ExtData
+  properties:
+  - type: OpenAPI
+    url: openapi/cyberark-identity-extdata-api-openapi.yml
+- aid: cyberark-identity:cyberark-identity-oauth-api
+  name: CyberArk Identity OAuth API
+  description: The OAuth API from CyberArk Identity — 1 operation(s) for oauth.
+  humanURL: https://api-docs-identity.cyberark.com/docs/identity-api-reference/before-you-begin
+  baseURL: https://<tenant>.id.cyberark.cloud
+  tags:
+  - OAuth
+  properties:
+  - type: OpenAPI
+    url: openapi/cyberark-identity-oauth-api-openapi.yml
+- aid: cyberark-identity:cyberark-identity-org-api
+  name: CyberArk Identity Org API
+  description: The Org API from CyberArk Identity — 2 operation(s) for org.
+  humanURL: https://api-docs-identity.cyberark.com/docs/identity-api-reference/before-you-begin
+  baseURL: https://<tenant>.id.cyberark.cloud
+  tags:
+  - Org
+  properties:
+  - type: OpenAPI
+    url: openapi/cyberark-identity-org-api-openapi.yml
+- aid: cyberark-identity:cyberark-identity-scim-api
+  name: CyberArk Identity SCIM API
+  description: The SCIM API from CyberArk Identity — 4 operation(s) for scim.
+  humanURL: https://api-docs-identity.cyberark.com/docs/identity-api-reference/before-you-begin
+  baseURL: https://<tenant>.id.cyberark.cloud
+  tags:
+  - SCIM
+  properties:
+  - type: OpenAPI
+    url: openapi/cyberark-identity-scim-api-openapi.yml
+- aid: cyberark-identity:cyberark-identity-usermgmt-api
+  name: CyberArk Identity UserMgmt API
+  description: The UserMgmt API from CyberArk Identity — 5 operation(s) for usermgmt.
+  humanURL: https://api-docs-identity.cyberark.com/docs/identity-api-reference/before-you-begin
+  baseURL: https://<tenant>.id.cyberark.cloud
+  tags:
+  - UserMgmt
+  properties:
+  - type: OpenAPI
+    url: openapi/cyberark-identity-usermgmt-api-openapi.yml
 common:
   - type: AgenticAccess
     url: agentic-access/cyberark-identity-agentic-access.yml
