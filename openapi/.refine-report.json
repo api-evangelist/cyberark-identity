@@ -1,0 +1,26 @@
+{
+  "provider": "cyberark-identity",
+  "sources": [
+    "cyberark-identity-authentication-api-openapi.yml",
+    "cyberark-identity-cdirectoryservice-api-openapi.yml",
+    "cyberark-identity-extdata-api-openapi.yml",
+    "cyberark-identity-oauth-api-openapi.yml",
+    "cyberark-identity-org-api-openapi.yml",
+    "cyberark-identity-scim-api-openapi.yml",
+    "cyberark-identity-usermgmt-api-openapi.yml"
+  ],
+  "outputs": [
+    "cyberark-identity-authentication-api-openapi.yml",
+    "cyberark-identity-cdirectoryservice-api-openapi.yml",
+    "cyberark-identity-extdata-api-openapi.yml",
+    "cyberark-identity-oauth-api-openapi.yml",
+    "cyberark-identity-org-api-openapi.yml",
+    "cyberark-identity-scim-api-openapi.yml",
+    "cyberark-identity-usermgmt-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}
