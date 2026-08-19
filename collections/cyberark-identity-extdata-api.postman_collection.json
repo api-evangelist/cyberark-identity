@@ -1,0 +1,162 @@
+{
+  "item": [
+    {
+      "id": "5ff5e056-0e2b-426f-8f89-739075dfcc78",
+      "name": "ExtData",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "60dc80c5-dbf2-49aa-adbb-d70a67d5058e",
+          "name": "List extended user attribute columns and values",
+          "request": {
+            "name": "List extended user attribute columns and values",
+            "description": {},
+            "url": {
+              "path": [
+                "ExtData",
+                "GetColumns"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "Your CyberArk Identity tenant prefix.",
+                  "type": "any",
+                  "value": "{{tenant}}",
+                  "key": "tenant"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"Table\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "abd74dd9-d824-4582-a9e0-bffa84483a8e",
+              "name": "Columns",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "ExtData",
+                    "GetColumns"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "Your CyberArk Identity tenant prefix.",
+                      "type": "any",
+                      "value": "{{tenant}}",
+                      "key": "tenant"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"Table\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"success\": true,\n  \"Result\": {\n    \"key_0\": 8293.197203077343\n  },\n  \"Message\": \"string\",\n  \"Exception\": \"string\",\n  \"ErrorCode\": \"string\",\n  \"ErrorID\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "description": {
+        "content": "Your CyberArk Identity tenant prefix.",
+        "type": "text/plain"
+      },
+      "type": "any",
+      "value": "aab1234",
+      "key": "tenant"
+    },
+    {
+      "type": "string",
+      "value": "https://{{tenant}}.id.cyberark.cloud",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "f6eb835c-0e59-4e83-a392-419fa3221221",
+    "name": "CyberArk Identity REST Authentication ExtData API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "CyberArk Identity (formerly Idaptive) REST API. Provides\nauthentication, OAuth/OIDC token issuance, user and organization\nmanagement, extended user attributes/schema, and SCIM v2 user/group\nprovisioning against a CyberArk Identity tenant.\n\nBest-effort spec derived from publicly indexed CyberArk Identity\ndeveloper documentation (api-docs.cyberark.com, docs.cyberark.com,\nand third-party API directory listings). The authoritative reference\nis https://api-docs.cyberark.com/identity-docs-api/docs/identity-apis.\n\nThe host should be set to your CyberArk Identity tenant URL —\ne.g. https://aab1234.id.cyberark.cloud.\n\n\nContact Support:\n Name: CyberArk Developer Hub",
+      "type": "text/plain"
+    }
+  }
+}

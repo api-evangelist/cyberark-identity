@@ -1,0 +1,69 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "CyberArk Identity REST Authentication CDirectoryService API",
+    "version": "2026-05"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "CDirectoryService",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Create a cloud directory user",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{tenant}.id.cyberark.cloud/CDirectoryService/CreateUser",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create a cloud directory user"
+        },
+        {
+          "info": {
+            "name": "Fetch a user by ID",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{tenant}.id.cyberark.cloud/CDirectoryService/GetUser",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Fetch a user by ID"
+        },
+        {
+          "info": {
+            "name": "Update a cloud user profile",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{tenant}.id.cyberark.cloud/CDirectoryService/ChangeUser",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update a cloud user profile"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

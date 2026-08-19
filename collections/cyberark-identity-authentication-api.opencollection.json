@@ -1,0 +1,65 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "CyberArk Identity REST Authentication API",
+    "version": "2026-05"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Authentication",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Begin an interactive authentication session",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{tenant}.id.cyberark.cloud/Security/StartAuthentication",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Starts an authentication session for a user identified by username\nand tenant. Returns the available authentication mechanisms; the\nclient must complete the flow with /Security/AdvanceAuthentication\nwithin five minutes.\n"
+        },
+        {
+          "info": {
+            "name": "Submit a mechanism response and advance the auth session",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{tenant}.id.cyberark.cloud/Security/AdvanceAuthentication",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Submit a mechanism response and advance the auth session"
+        },
+        {
+          "info": {
+            "name": "Log out the current session",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{tenant}.id.cyberark.cloud/Security/Logout"
+          },
+          "docs": "Log out the current session"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

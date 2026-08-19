@@ -1,0 +1,386 @@
+{
+  "item": [
+    {
+      "id": "9c137563-2207-4670-8361-08a3f768b17d",
+      "name": "CDirectoryService",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "e6d0a9e1-cff0-4c29-b73b-7b56fcf40c95",
+          "name": "Create a cloud directory user",
+          "request": {
+            "name": "Create a cloud directory user",
+            "description": {},
+            "url": {
+              "path": [
+                "CDirectoryService",
+                "CreateUser"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "Your CyberArk Identity tenant prefix.",
+                  "type": "any",
+                  "value": "{{tenant}}",
+                  "key": "tenant"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"Name\": \"<string>\",\n  \"Mail\": \"<email>\",\n  \"DisplayName\": \"<string>\",\n  \"Password\": \"<string>\",\n  \"ForcePasswordChangeNextLogin\": \"<boolean>\",\n  \"SendEmailInvite\": \"<boolean>\",\n  \"Description\": \"<string>\",\n  \"OfficeNumber\": \"<string>\",\n  \"HomeNumber\": \"<string>\",\n  \"MobileNumber\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "c8b10dc1-ef16-471e-86f6-bbc97ea0e0f4",
+              "name": "User created",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "CDirectoryService",
+                    "CreateUser"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "Your CyberArk Identity tenant prefix.",
+                      "type": "any",
+                      "value": "{{tenant}}",
+                      "key": "tenant"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"Name\": \"<string>\",\n  \"Mail\": \"<email>\",\n  \"DisplayName\": \"<string>\",\n  \"Password\": \"<string>\",\n  \"ForcePasswordChangeNextLogin\": \"<boolean>\",\n  \"SendEmailInvite\": \"<boolean>\",\n  \"Description\": \"<string>\",\n  \"OfficeNumber\": \"<string>\",\n  \"HomeNumber\": \"<string>\",\n  \"MobileNumber\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"success\": false,\n  \"Result\": {\n    \"key_0\": 6922.236932383425\n  },\n  \"Message\": \"string\",\n  \"Exception\": \"string\",\n  \"ErrorCode\": \"string\",\n  \"ErrorID\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "909d48c9-50b0-414f-8e8b-744049d97284",
+          "name": "Fetch a user by ID",
+          "request": {
+            "name": "Fetch a user by ID",
+            "description": {},
+            "url": {
+              "path": [
+                "CDirectoryService",
+                "GetUser"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "Your CyberArk Identity tenant prefix.",
+                  "type": "any",
+                  "value": "{{tenant}}",
+                  "key": "tenant"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"ID\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "29a9b54e-0f03-4268-abcb-b5985e177559",
+              "name": "User",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "CDirectoryService",
+                    "GetUser"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "Your CyberArk Identity tenant prefix.",
+                      "type": "any",
+                      "value": "{{tenant}}",
+                      "key": "tenant"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"ID\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"success\": false,\n  \"Result\": {\n    \"key_0\": 6922.236932383425\n  },\n  \"Message\": \"string\",\n  \"Exception\": \"string\",\n  \"ErrorCode\": \"string\",\n  \"ErrorID\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "67b20824-5c0c-4192-bcc5-79cf5eaecb1e",
+          "name": "Update a cloud user profile",
+          "request": {
+            "name": "Update a cloud user profile",
+            "description": {},
+            "url": {
+              "path": [
+                "CDirectoryService",
+                "ChangeUser"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "Your CyberArk Identity tenant prefix.",
+                  "type": "any",
+                  "value": "{{tenant}}",
+                  "key": "tenant"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"Name\": \"<string>\",\n  \"Mail\": \"<email>\",\n  \"DisplayName\": \"<string>\",\n  \"Password\": \"<string>\",\n  \"ForcePasswordChangeNextLogin\": \"<boolean>\",\n  \"SendEmailInvite\": \"<boolean>\",\n  \"Description\": \"<string>\",\n  \"OfficeNumber\": \"<string>\",\n  \"HomeNumber\": \"<string>\",\n  \"MobileNumber\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "04c2d706-be39-4548-9ade-78e2e7dfd7af",
+              "name": "User updated",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "CDirectoryService",
+                    "ChangeUser"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "Your CyberArk Identity tenant prefix.",
+                      "type": "any",
+                      "value": "{{tenant}}",
+                      "key": "tenant"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"Name\": \"<string>\",\n  \"Mail\": \"<email>\",\n  \"DisplayName\": \"<string>\",\n  \"Password\": \"<string>\",\n  \"ForcePasswordChangeNextLogin\": \"<boolean>\",\n  \"SendEmailInvite\": \"<boolean>\",\n  \"Description\": \"<string>\",\n  \"OfficeNumber\": \"<string>\",\n  \"HomeNumber\": \"<string>\",\n  \"MobileNumber\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"success\": false,\n  \"Result\": {\n    \"key_0\": 6922.236932383425\n  },\n  \"Message\": \"string\",\n  \"Exception\": \"string\",\n  \"ErrorCode\": \"string\",\n  \"ErrorID\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "description": {
+        "content": "Your CyberArk Identity tenant prefix.",
+        "type": "text/plain"
+      },
+      "type": "any",
+      "value": "aab1234",
+      "key": "tenant"
+    },
+    {
+      "type": "string",
+      "value": "https://{{tenant}}.id.cyberark.cloud",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "80c97395-fe2f-4e88-8bcc-eed59a3c5422",
+    "name": "CyberArk Identity REST Authentication CDirectoryService API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "CyberArk Identity (formerly Idaptive) REST API. Provides\nauthentication, OAuth/OIDC token issuance, user and organization\nmanagement, extended user attributes/schema, and SCIM v2 user/group\nprovisioning against a CyberArk Identity tenant.\n\nBest-effort spec derived from publicly indexed CyberArk Identity\ndeveloper documentation (api-docs.cyberark.com, docs.cyberark.com,\nand third-party API directory listings). The authoritative reference\nis https://api-docs.cyberark.com/identity-docs-api/docs/identity-apis.\n\nThe host should be set to your CyberArk Identity tenant URL —\ne.g. https://aab1234.id.cyberark.cloud.\n\n\nContact Support:\n Name: CyberArk Developer Hub",
+      "type": "text/plain"
+    }
+  }
+}

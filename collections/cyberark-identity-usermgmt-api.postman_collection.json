@@ -1,0 +1,610 @@
+{
+  "item": [
+    {
+      "id": "bc826cea-8d15-4c98-8ed1-0147480361d0",
+      "name": "UserMgmt",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "739b1e1a-4c2d-46fe-a838-638bc733384e",
+          "name": "Retrieve detailed information for a user",
+          "request": {
+            "name": "Retrieve detailed information for a user",
+            "description": {},
+            "url": {
+              "path": [
+                "UserMgmt",
+                "GetUserInfo"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "Your CyberArk Identity tenant prefix.",
+                  "type": "any",
+                  "value": "{{tenant}}",
+                  "key": "tenant"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"ID\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "d5904ea2-051a-4c7d-957c-37c620f390c6",
+              "name": "User info",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "UserMgmt",
+                    "GetUserInfo"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "Your CyberArk Identity tenant prefix.",
+                      "type": "any",
+                      "value": "{{tenant}}",
+                      "key": "tenant"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"ID\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"success\": false,\n  \"Result\": {\n    \"key_0\": 1527,\n    \"key_1\": 223\n  },\n  \"Message\": \"string\",\n  \"Exception\": \"string\",\n  \"ErrorCode\": \"string\",\n  \"ErrorID\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "87e92dbf-7076-4052-ad5b-a776b5bc6aac",
+          "name": "Update user attribute values",
+          "request": {
+            "name": "Update user attribute values",
+            "description": {},
+            "url": {
+              "path": [
+                "UserMgmt",
+                "ChangeUserAttributes"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "Your CyberArk Identity tenant prefix.",
+                  "type": "any",
+                  "value": "{{tenant}}",
+                  "key": "tenant"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "<object>",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "d01957ab-9b76-4ac4-a770-2efbd03d6253",
+              "name": "Attributes updated",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "UserMgmt",
+                    "ChangeUserAttributes"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "Your CyberArk Identity tenant prefix.",
+                      "type": "any",
+                      "value": "{{tenant}}",
+                      "key": "tenant"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "<object>",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"success\": false,\n  \"Result\": {\n    \"key_0\": 1527,\n    \"key_1\": 223\n  },\n  \"Message\": \"string\",\n  \"Exception\": \"string\",\n  \"ErrorCode\": \"string\",\n  \"ErrorID\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "d4f0d0d8-4ee8-47e1-abd7-0c3430736c5f",
+          "name": "Send system invitations to one or more users",
+          "request": {
+            "name": "Send system invitations to one or more users",
+            "description": {},
+            "url": {
+              "path": [
+                "UserMgmt",
+                "InviteUsers"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "Your CyberArk Identity tenant prefix.",
+                  "type": "any",
+                  "value": "{{tenant}}",
+                  "key": "tenant"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"Entities\": [\n    {\n      \"ID\": \"<string>\",\n      \"Type\": \"<string>\"\n    },\n    {\n      \"ID\": \"<string>\",\n      \"Type\": \"<string>\"\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "6f8e9be8-db53-4c5b-b237-462fb4c60138",
+              "name": "Invitations sent",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "UserMgmt",
+                    "InviteUsers"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "Your CyberArk Identity tenant prefix.",
+                      "type": "any",
+                      "value": "{{tenant}}",
+                      "key": "tenant"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"Entities\": [\n    {\n      \"ID\": \"<string>\",\n      \"Type\": \"User\"\n    },\n    {\n      \"ID\": \"<string>\",\n      \"Type\": \"User\"\n    }\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"success\": false,\n  \"Result\": {\n    \"key_0\": 1527,\n    \"key_1\": 223\n  },\n  \"Message\": \"string\",\n  \"Exception\": \"string\",\n  \"ErrorCode\": \"string\",\n  \"ErrorID\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "9c15990e-c769-418e-aaa5-0310d2155c29",
+          "name": "Lock or unlock a cloud user account",
+          "request": {
+            "name": "Lock or unlock a cloud user account",
+            "description": {},
+            "url": {
+              "path": [
+                "UserMgmt",
+                "SetCloudLock"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "Your CyberArk Identity tenant prefix.",
+                  "type": "any",
+                  "value": "{{tenant}}",
+                  "key": "tenant"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"ID\": \"<string>\",\n  \"Lock\": \"<boolean>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "e08c6555-0e91-4a88-96ad-6f5039203045",
+              "name": "Lock state updated",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "UserMgmt",
+                    "SetCloudLock"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "Your CyberArk Identity tenant prefix.",
+                      "type": "any",
+                      "value": "{{tenant}}",
+                      "key": "tenant"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"ID\": \"<string>\",\n  \"Lock\": \"<boolean>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"success\": false,\n  \"Result\": {\n    \"key_0\": 1527,\n    \"key_1\": 223\n  },\n  \"Message\": \"string\",\n  \"Exception\": \"string\",\n  \"ErrorCode\": \"string\",\n  \"ErrorID\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "7e23e820-73c3-4be2-a061-5af77771c130",
+          "name": "Delete cloud users",
+          "request": {
+            "name": "Delete cloud users",
+            "description": {},
+            "url": {
+              "path": [
+                "UserMgmt",
+                "RemoveUsers"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "Your CyberArk Identity tenant prefix.",
+                  "type": "any",
+                  "value": "{{tenant}}",
+                  "key": "tenant"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"Users\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "c843781d-c92b-4f57-8e7f-3ae8464561ce",
+              "name": "Users removed",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "UserMgmt",
+                    "RemoveUsers"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "Your CyberArk Identity tenant prefix.",
+                      "type": "any",
+                      "value": "{{tenant}}",
+                      "key": "tenant"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"Users\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"success\": false,\n  \"Result\": {\n    \"key_0\": 1527,\n    \"key_1\": 223\n  },\n  \"Message\": \"string\",\n  \"Exception\": \"string\",\n  \"ErrorCode\": \"string\",\n  \"ErrorID\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "description": {
+        "content": "Your CyberArk Identity tenant prefix.",
+        "type": "text/plain"
+      },
+      "type": "any",
+      "value": "aab1234",
+      "key": "tenant"
+    },
+    {
+      "type": "string",
+      "value": "https://{{tenant}}.id.cyberark.cloud",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "049b335b-4be0-4d65-9892-87ad9bd4f232",
+    "name": "CyberArk Identity REST Authentication UserMgmt API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "CyberArk Identity (formerly Idaptive) REST API. Provides\nauthentication, OAuth/OIDC token issuance, user and organization\nmanagement, extended user attributes/schema, and SCIM v2 user/group\nprovisioning against a CyberArk Identity tenant.\n\nBest-effort spec derived from publicly indexed CyberArk Identity\ndeveloper documentation (api-docs.cyberark.com, docs.cyberark.com,\nand third-party API directory listings). The authoritative reference\nis https://api-docs.cyberark.com/identity-docs-api/docs/identity-apis.\n\nThe host should be set to your CyberArk Identity tenant URL —\ne.g. https://aab1234.id.cyberark.cloud.\n\n\nContact Support:\n Name: CyberArk Developer Hub",
+      "type": "text/plain"
+    }
+  }
+}

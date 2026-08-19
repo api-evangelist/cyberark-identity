@@ -1,0 +1,39 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "CyberArk Identity REST Authentication ExtData API",
+    "version": "2026-05"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "ExtData",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List extended user attribute columns and values",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{tenant}.id.cyberark.cloud/ExtData/GetColumns",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "List extended user attribute columns and values"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

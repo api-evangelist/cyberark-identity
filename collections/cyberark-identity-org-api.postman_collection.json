@@ -1,0 +1,253 @@
+{
+  "item": [
+    {
+      "id": "eab4e505-8ce3-492b-9541-60fe507d1a36",
+      "name": "Org",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "4474301a-3f39-4b6b-ba20-e6bcbf08e847",
+          "name": "Create an organization",
+          "request": {
+            "name": "Create an organization",
+            "description": {},
+            "url": {
+              "path": [
+                "Org",
+                "Create"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "Your CyberArk Identity tenant prefix.",
+                  "type": "any",
+                  "value": "{{tenant}}",
+                  "key": "tenant"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"Name\": \"<string>\",\n  \"Description\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "7515b06e-effd-48b9-be99-ad5ae43b70bb",
+              "name": "Organization created",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "Org",
+                    "Create"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "Your CyberArk Identity tenant prefix.",
+                      "type": "any",
+                      "value": "{{tenant}}",
+                      "key": "tenant"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"Name\": \"<string>\",\n  \"Description\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"success\": false,\n  \"Result\": {\n    \"key_0\": \"string\",\n    \"key_1\": false,\n    \"key_2\": 2912.608850280449\n  },\n  \"Message\": \"string\",\n  \"Exception\": \"string\",\n  \"ErrorCode\": \"string\",\n  \"ErrorID\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "745d27b4-41c7-4b94-a250-8cc5b6e54fdf",
+          "name": "List all organizations",
+          "request": {
+            "name": "List all organizations",
+            "description": {},
+            "url": {
+              "path": [
+                "Org",
+                "ListAll"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "Your CyberArk Identity tenant prefix.",
+                  "type": "any",
+                  "value": "{{tenant}}",
+                  "key": "tenant"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "717ff676-e670-4004-9d62-b18c79b3e6f1",
+              "name": "Organizations",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "Org",
+                    "ListAll"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "Your CyberArk Identity tenant prefix.",
+                      "type": "any",
+                      "value": "{{tenant}}",
+                      "key": "tenant"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"success\": false,\n  \"Result\": {\n    \"key_0\": \"string\",\n    \"key_1\": false,\n    \"key_2\": 2912.608850280449\n  },\n  \"Message\": \"string\",\n  \"Exception\": \"string\",\n  \"ErrorCode\": \"string\",\n  \"ErrorID\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "description": {
+        "content": "Your CyberArk Identity tenant prefix.",
+        "type": "text/plain"
+      },
+      "type": "any",
+      "value": "aab1234",
+      "key": "tenant"
+    },
+    {
+      "type": "string",
+      "value": "https://{{tenant}}.id.cyberark.cloud",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "5fe3dca3-8e7b-4de5-ace7-4b33c51ab7b6",
+    "name": "CyberArk Identity REST Authentication Org API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "CyberArk Identity (formerly Idaptive) REST API. Provides\nauthentication, OAuth/OIDC token issuance, user and organization\nmanagement, extended user attributes/schema, and SCIM v2 user/group\nprovisioning against a CyberArk Identity tenant.\n\nBest-effort spec derived from publicly indexed CyberArk Identity\ndeveloper documentation (api-docs.cyberark.com, docs.cyberark.com,\nand third-party API directory listings). The authoritative reference\nis https://api-docs.cyberark.com/identity-docs-api/docs/identity-apis.\n\nThe host should be set to your CyberArk Identity tenant URL —\ne.g. https://aab1234.id.cyberark.cloud.\n\n\nContact Support:\n Name: CyberArk Developer Hub",
+      "type": "text/plain"
+    }
+  }
+}

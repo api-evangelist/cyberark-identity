@@ -1,0 +1,358 @@
+{
+  "item": [
+    {
+      "id": "17d643c1-a92d-472b-b678-0c1ed05305df",
+      "name": "Authentication",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "df85d307-96f5-4a3e-a98c-1ce6baf13cf3",
+          "name": "Begin an interactive authentication session",
+          "request": {
+            "name": "Begin an interactive authentication session",
+            "description": {
+              "content": "Starts an authentication session for a user identified by username\nand tenant. Returns the available authentication mechanisms; the\nclient must complete the flow with /Security/AdvanceAuthentication\nwithin five minutes.\n",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "Security",
+                "StartAuthentication"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "Your CyberArk Identity tenant prefix.",
+                  "type": "any",
+                  "value": "{{tenant}}",
+                  "key": "tenant"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"User\": \"<string>\",\n  \"Version\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "2b1fafd3-6d59-461b-8dd8-f3184e9ef328",
+              "name": "Authentication session started",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "Security",
+                    "StartAuthentication"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "Your CyberArk Identity tenant prefix.",
+                      "type": "any",
+                      "value": "{{tenant}}",
+                      "key": "tenant"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"User\": \"<string>\",\n  \"Version\": \"1.0\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"success\": false,\n  \"Result\": {\n    \"SessionId\": \"string\",\n    \"TenantId\": \"string\",\n    \"Challenges\": [\n      {\n        \"Mechanisms\": [\n          {\n            \"Name\": \"string\",\n            \"MechanismId\": \"string\",\n            \"AnswerType\": \"string\"\n          },\n          {\n            \"Name\": \"string\",\n            \"MechanismId\": \"string\",\n            \"AnswerType\": \"string\"\n          }\n        ]\n      },\n      {\n        \"Mechanisms\": [\n          {\n            \"Name\": \"string\",\n            \"MechanismId\": \"string\",\n            \"AnswerType\": \"string\"\n          },\n          {\n            \"Name\": \"string\",\n            \"MechanismId\": \"string\",\n            \"AnswerType\": \"string\"\n          }\n        ]\n      }\n    ],\n    \"Summary\": \"string\"\n  },\n  \"Message\": \"string\",\n  \"Exception\": \"string\",\n  \"ErrorCode\": \"string\",\n  \"ErrorID\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "5b1a509e-f4c4-4eca-b3b2-0ee348e1bc65",
+          "name": "Submit a mechanism response and advance the auth session",
+          "request": {
+            "name": "Submit a mechanism response and advance the auth session",
+            "description": {},
+            "url": {
+              "path": [
+                "Security",
+                "AdvanceAuthentication"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "Your CyberArk Identity tenant prefix.",
+                  "type": "any",
+                  "value": "{{tenant}}",
+                  "key": "tenant"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"SessionId\": \"<string>\",\n  \"MechanismId\": \"<string>\",\n  \"Answer\": \"<string>\",\n  \"Action\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "8cf742bc-7263-4de1-80ef-1c0310da8b3e",
+              "name": "Auth advanced (challenge or success)",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "Security",
+                    "AdvanceAuthentication"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "Your CyberArk Identity tenant prefix.",
+                      "type": "any",
+                      "value": "{{tenant}}",
+                      "key": "tenant"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"SessionId\": \"<string>\",\n  \"MechanismId\": \"<string>\",\n  \"Answer\": \"<string>\",\n  \"Action\": \"Answer\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"success\": false,\n  \"Result\": {\n    \"SessionId\": \"string\",\n    \"TenantId\": \"string\",\n    \"Challenges\": [\n      {\n        \"Mechanisms\": [\n          {\n            \"Name\": \"string\",\n            \"MechanismId\": \"string\",\n            \"AnswerType\": \"string\"\n          },\n          {\n            \"Name\": \"string\",\n            \"MechanismId\": \"string\",\n            \"AnswerType\": \"string\"\n          }\n        ]\n      },\n      {\n        \"Mechanisms\": [\n          {\n            \"Name\": \"string\",\n            \"MechanismId\": \"string\",\n            \"AnswerType\": \"string\"\n          },\n          {\n            \"Name\": \"string\",\n            \"MechanismId\": \"string\",\n            \"AnswerType\": \"string\"\n          }\n        ]\n      }\n    ],\n    \"Summary\": \"string\"\n  },\n  \"Message\": \"string\",\n  \"Exception\": \"string\",\n  \"ErrorCode\": \"string\",\n  \"ErrorID\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "466a0b46-d89a-41a2-bbf1-ac1be3dee97e",
+          "name": "Log out the current session",
+          "request": {
+            "name": "Log out the current session",
+            "description": {},
+            "url": {
+              "path": [
+                "Security",
+                "Logout"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "Your CyberArk Identity tenant prefix.",
+                  "type": "any",
+                  "value": "{{tenant}}",
+                  "key": "tenant"
+                }
+              ]
+            },
+            "method": "POST",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "95e96e63-0ea0-4d22-9a08-33ecace47f46",
+              "name": "Logged out",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "Security",
+                    "Logout"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "Your CyberArk Identity tenant prefix.",
+                      "type": "any",
+                      "value": "{{tenant}}",
+                      "key": "tenant"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "description": {
+        "content": "Your CyberArk Identity tenant prefix.",
+        "type": "text/plain"
+      },
+      "type": "any",
+      "value": "aab1234",
+      "key": "tenant"
+    },
+    {
+      "type": "string",
+      "value": "https://{{tenant}}.id.cyberark.cloud",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "7e531594-a820-45b4-8d1f-9619c0fdfbfd",
+    "name": "CyberArk Identity REST Authentication API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "CyberArk Identity (formerly Idaptive) REST API. Provides\nauthentication, OAuth/OIDC token issuance, user and organization\nmanagement, extended user attributes/schema, and SCIM v2 user/group\nprovisioning against a CyberArk Identity tenant.\n\nBest-effort spec derived from publicly indexed CyberArk Identity\ndeveloper documentation (api-docs.cyberark.com, docs.cyberark.com,\nand third-party API directory listings). The authoritative reference\nis https://api-docs.cyberark.com/identity-docs-api/docs/identity-apis.\n\nThe host should be set to your CyberArk Identity tenant URL —\ne.g. https://aab1234.id.cyberark.cloud.\n\n\nContact Support:\n Name: CyberArk Developer Hub",
+      "type": "text/plain"
+    }
+  }
+}
