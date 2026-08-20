@@ -32,6 +32,15 @@ tags:
   - Single Sign-On
   - SSO
   - Multi-Factor Authentication
+  - Authentication
+  - Zero Trust
+tags_raw:
+  - Identity
+  - Access Management
+  - IAM
+  - Single Sign-On
+  - SSO
+  - Multi-Factor Authentication
   - OAuth
   - Zero Trust
 url: >-
@@ -50,6 +59,11 @@ apis:
   humanURL: https://api-docs-identity.cyberark.com/docs/identity-api-reference/before-you-begin
   baseURL: https://<tenant>.id.cyberark.cloud
   tags:
+  - Identity
+  - Authentication
+  - Authorization
+  - User Management
+  tags_raw:
   - Identity
   - OAuth
   - Authentication
@@ -101,6 +115,8 @@ apis:
   humanURL: https://api-docs-identity.cyberark.com/docs/identity-api-reference/before-you-begin
   baseURL: https://<tenant>.id.cyberark.cloud
   tags:
+  - Authentication
+  tags_raw:
   - OAuth
   properties:
   - type: OpenAPI
