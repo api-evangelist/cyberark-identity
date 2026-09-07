@@ -1,4 +1,4 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
   title: CyberArk Identity REST Authentication Org API
   version: 2026-05
@@ -74,6 +74,13 @@ paths:
                 $ref: '#/components/schemas/UserMgmtResult'
 components:
   schemas:
+    Org:
+      type: object
+      properties:
+        Name:
+          type: string
+        Description:
+          type: string
     UserMgmtResult:
       type: object
       properties:
@@ -94,13 +101,6 @@ components:
         ErrorID:
           type: string
           nullable: true
-    Org:
-      type: object
-      properties:
-        Name:
-          type: string
-        Description:
-          type: string
   securitySchemes:
     BearerAuth:
       type: http

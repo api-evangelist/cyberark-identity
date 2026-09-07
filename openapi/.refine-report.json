@@ -21,6 +21,15 @@
   "archived": [],
   "errors": [],
   "warnings": [],
-  "notes": [],
+  "notes": [
+    "cyberark-identity-authentication-api-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
+    "cyberark-identity-cdirectoryservice-api-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
+    "cyberark-identity-extdata-api-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
+    "cyberark-identity-oauth-api-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
+    "cyberark-identity-org-api-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
+    "cyberark-identity-scim-api-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
+    "cyberark-identity-usermgmt-api-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
+    "apis.yml register: already-registered"
+  ],
   "skipped": []
 }
