@@ -123,18 +123,6 @@ apis:
   properties:
   - type: OpenAPI
     url: openapi/cyberark-identity-extdata-api-openapi.yml
-- aid: cyberark-identity:cyberark-identity-oauth-api
-  name: CyberArk Identity OAuth API
-  description: The OAuth API from CyberArk Identity — 1 operation(s) for oauth.
-  humanURL: https://api-docs-identity.cyberark.com/docs/identity-api-reference/before-you-begin
-  baseURL: https://<tenant>.id.cyberark.cloud
-  tags:
-  - Authentication
-  tags_raw:
-  - OAuth
-  properties:
-  - type: OpenAPI
-    url: openapi/cyberark-identity-oauth-api-openapi.yml
 - aid: cyberark-identity:cyberark-identity-org-api
   name: CyberArk Identity Org API
   description: The Org API from CyberArk Identity — 2 operation(s) for org.
@@ -165,6 +153,16 @@ apis:
   properties:
   - type: OpenAPI
     url: openapi/cyberark-identity-usermgmt-api-openapi.yml
+- aid: cyberark-identity:cyberark-identity-oauth-api
+  name: CyberArk Identity O Auth API
+  description: The OAuth API from CyberArk Identity — 1 operation(s) for oauth.
+  humanURL: https://api-docs-identity.cyberark.com/docs/identity-api-reference/before-you-begin
+  baseURL: https://<tenant>.id.cyberark.cloud
+  tags:
+  - OAuth
+  properties:
+  - type: OpenAPI
+    url: openapi/cyberark-identity-oauth-api-openapi.yml
 common:
   - type: AgenticAccess
     url: agentic-access/cyberark-identity-agentic-access.yml
