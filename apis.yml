@@ -42,8 +42,7 @@ image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/cyberark-i
 tags:
   - Identity
   - Access Management
-  - IAM
-  - Single Sign-On
+  - Identity and Access Management
   - SSO
   - Multi-Factor Authentication
   - Authentication
@@ -159,6 +158,8 @@ apis:
   humanURL: https://api-docs-identity.cyberark.com/docs/identity-api-reference/before-you-begin
   baseURL: https://<tenant>.id.cyberark.cloud
   tags:
+  - Authentication
+  tags_raw:
   - OAuth
   properties:
   - type: OpenAPI
