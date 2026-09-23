@@ -1,13 +1,7 @@
 {
   "provider": "cyberark-identity",
   "sources": [
-    "cyberark-identity-authentication-api-openapi.yml",
-    "cyberark-identity-cdirectoryservice-api-openapi.yml",
-    "cyberark-identity-extdata-api-openapi.yml",
-    "cyberark-identity-oauth-api-openapi.yml",
-    "cyberark-identity-org-api-openapi.yml",
-    "cyberark-identity-scim-api-openapi.yml",
-    "cyberark-identity-usermgmt-api-openapi.yml"
+    "_original/cyberark-identity-openapi.yml"
   ],
   "outputs": [
     "cyberark-identity-authentication-api-openapi.yml",
@@ -18,18 +12,24 @@
     "cyberark-identity-scim-api-openapi.yml",
     "cyberark-identity-usermgmt-api-openapi.yml"
   ],
-  "archived": [],
+  "archived": [
+    "deleted 1 superseded output(s) from the previous generation"
+  ],
   "errors": [],
   "warnings": [],
   "notes": [
-    "cyberark-identity-authentication-api-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
-    "cyberark-identity-cdirectoryservice-api-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
-    "cyberark-identity-extdata-api-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
-    "cyberark-identity-oauth-api-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
-    "cyberark-identity-org-api-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
-    "cyberark-identity-scim-api-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
-    "cyberark-identity-usermgmt-api-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
-    "apis.yml register: already-registered"
+    "sourced from openapi/_original/ (1 archived document(s)); previously refined output at the top level was skipped rather than re-split",
+    "cyberark-identity-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
+    "superseded outputs removed: cyberark-identity-o-auth-api-openapi.yml",
+    "apis.yml register: written (+1 apis, 8 total)"
   ],
-  "skipped": []
+  "skipped": [
+    "cyberark-identity-authentication-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "cyberark-identity-cdirectoryservice-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "cyberark-identity-extdata-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "cyberark-identity-o-auth-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "cyberark-identity-org-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "cyberark-identity-scim-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "cyberark-identity-usermgmt-api-openapi.yml: previously refined output, superseded by openapi/_original/"
+  ]
 }

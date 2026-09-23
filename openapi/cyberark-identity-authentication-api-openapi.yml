@@ -2,29 +2,7 @@ openapi: 3.2.0
 info:
   title: CyberArk Identity REST Authentication API
   version: 2026-05
-  description: 'CyberArk Identity (formerly Idaptive) REST API. Provides
-
-    authentication, OAuth/OIDC token issuance, user and organization
-
-    management, extended user attributes/schema, and SCIM v2 user/group
-
-    provisioning against a CyberArk Identity tenant.
-
-
-    Best-effort spec derived from publicly indexed CyberArk Identity
-
-    developer documentation (api-docs.cyberark.com, docs.cyberark.com,
-
-    and third-party API directory listings). The authoritative reference
-
-    is https://api-docs.cyberark.com/identity-docs-api/docs/identity-apis.
-
-
-    The host should be set to your CyberArk Identity tenant URL —
-
-    e.g. https://aab1234.id.cyberark.cloud.
-
-    '
+  description: CyberArk Identity (formerly Idaptive) REST API.
   contact:
     name: CyberArk Developer Hub
     url: https://api-docs.cyberark.com/identity-docs-api/docs/identity-apis
@@ -53,9 +31,7 @@ paths:
 
         client must complete the flow with /Security/AdvanceAuthentication
 
-        within five minutes.
-
-        '
+        within five minutes.'
       security: []
       requestBody:
         required: true
@@ -79,6 +55,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/AuthChallengeResult'
+      operationId: postSecurityStartAuthentication
+      x-operation-id-source: derived
   /Security/AdvanceAuthentication:
     post:
       tags:
@@ -111,6 +89,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/AuthChallengeResult'
+      operationId: postSecurityAdvanceAuthentication
+      x-operation-id-source: derived
   /Security/Logout:
     post:
       tags:
@@ -119,6 +99,8 @@ paths:
       responses:
         '200':
           description: Logged out
+      operationId: postSecurityLogout
+      x-operation-id-source: derived
 components:
   schemas:
     AuthChallengeResult:

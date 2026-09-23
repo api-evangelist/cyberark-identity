@@ -1,30 +1,8 @@
 openapi: 3.2.0
 info:
-  title: CyberArk Identity REST Authentication User Mgmt API
+  title: CyberArk Identity REST User Mgmt API
   version: 2026-05
-  description: 'CyberArk Identity (formerly Idaptive) REST API. Provides
-
-    authentication, OAuth/OIDC token issuance, user and organization
-
-    management, extended user attributes/schema, and SCIM v2 user/group
-
-    provisioning against a CyberArk Identity tenant.
-
-
-    Best-effort spec derived from publicly indexed CyberArk Identity
-
-    developer documentation (api-docs.cyberark.com, docs.cyberark.com,
-
-    and third-party API directory listings). The authoritative reference
-
-    is https://api-docs.cyberark.com/identity-docs-api/docs/identity-apis.
-
-
-    The host should be set to your CyberArk Identity tenant URL —
-
-    e.g. https://aab1234.id.cyberark.cloud.
-
-    '
+  description: CyberArk Identity (formerly Idaptive) REST API.
   contact:
     name: CyberArk Developer Hub
     url: https://api-docs.cyberark.com/identity-docs-api/docs/identity-apis
@@ -63,6 +41,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/UserMgmtResult'
+      operationId: postUserMgmtGetUserInfo
+      x-operation-id-source: derived
   /UserMgmt/ChangeUserAttributes:
     post:
       tags:
@@ -81,6 +61,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/UserMgmtResult'
+      operationId: postUserMgmtChangeUserAttributes
+      x-operation-id-source: derived
   /UserMgmt/InviteUsers:
     post:
       tags:
@@ -110,6 +92,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/UserMgmtResult'
+      operationId: postUserMgmtInviteUsers
+      x-operation-id-source: derived
   /UserMgmt/SetCloudLock:
     post:
       tags:
@@ -133,6 +117,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/UserMgmtResult'
+      operationId: postUserMgmtSetCloudLock
+      x-operation-id-source: derived
   /UserMgmt/RemoveUsers:
     post:
       tags:
@@ -156,6 +142,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/UserMgmtResult'
+      operationId: postUserMgmtRemoveUsers
+      x-operation-id-source: derived
 components:
   schemas:
     UserMgmtResult:
