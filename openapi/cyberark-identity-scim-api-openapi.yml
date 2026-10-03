@@ -146,25 +146,6 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
-    ScimListResponse:
-      type: object
-      properties:
-        schemas:
-          type: array
-          items:
-            type: string
-          example:
-          - urn:ietf:params:scim:api:messages:2.0:ListResponse
-        totalResults:
-          type: integer
-        startIndex:
-          type: integer
-        itemsPerPage:
-          type: integer
-        Resources:
-          type: array
-          items:
-            type: object
     ScimUser:
       type: object
       properties:
@@ -198,6 +179,25 @@ components:
               type: string
             familyName:
               type: string
+    ScimListResponse:
+      type: object
+      properties:
+        schemas:
+          type: array
+          items:
+            type: string
+          example:
+          - urn:ietf:params:scim:api:messages:2.0:ListResponse
+        totalResults:
+          type: integer
+        startIndex:
+          type: integer
+        itemsPerPage:
+          type: integer
+        Resources:
+          type: array
+          items:
+            type: object
   securitySchemes:
     BearerAuth:
       type: http
