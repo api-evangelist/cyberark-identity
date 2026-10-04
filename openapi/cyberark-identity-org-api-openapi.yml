@@ -56,13 +56,6 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
-    Org:
-      type: object
-      properties:
-        Name:
-          type: string
-        Description:
-          type: string
     UserMgmtResult:
       type: object
       properties:
@@ -83,6 +76,13 @@ components:
         ErrorID:
           type: string
           nullable: true
+    Org:
+      type: object
+      properties:
+        Name:
+          type: string
+        Description:
+          type: string
   securitySchemes:
     BearerAuth:
       type: http
