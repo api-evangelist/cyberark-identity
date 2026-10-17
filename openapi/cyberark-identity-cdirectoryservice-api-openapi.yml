@@ -85,26 +85,6 @@ paths:
       x-operation-id-source: derived
 components:
   schemas:
-    UserMgmtResult:
-      type: object
-      properties:
-        success:
-          type: boolean
-        Result:
-          type: object
-          additionalProperties: true
-        Message:
-          type: string
-          nullable: true
-        Exception:
-          type: string
-          nullable: true
-        ErrorCode:
-          type: string
-          nullable: true
-        ErrorID:
-          type: string
-          nullable: true
     User:
       type: object
       properties:
@@ -129,6 +109,26 @@ components:
           type: string
         MobileNumber:
           type: string
+    UserMgmtResult:
+      type: object
+      properties:
+        success:
+          type: boolean
+        Result:
+          type: object
+          additionalProperties: true
+        Message:
+          type: string
+          nullable: true
+        Exception:
+          type: string
+          nullable: true
+        ErrorCode:
+          type: string
+          nullable: true
+        ErrorID:
+          type: string
+          nullable: true
   securitySchemes:
     BearerAuth:
       type: http
