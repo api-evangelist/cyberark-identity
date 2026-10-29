@@ -1,4 +1,4 @@
-# CyberArk Identity (cyberark-identity)
+# CyberArk Identity
 
 <!-- API-EVANGELIST-PROVENANCE:BEGIN -->
 > ### About this repository
@@ -66,63 +66,112 @@
 
 CyberArk Identity is a SaaS identity and access management platform offering single sign-on (SSO), multi-factor authentication (MFA), adaptive access, lifecycle management, directory services, and privileged access controls for workforce and customer identities. The platform integrates with thousands of applications and supports enterprise zero-trust strategies. CyberArk Identity exposes REST APIs for authentication, authorization, user and role management, and policy operations, authenticated via OAuth 2.0 (including client_credentials) or session tokens obtained via /Security/StartAuthentication and /Security/AdvanceAuthentication.
 
-**APIs.json:** [https://raw.githubusercontent.com/api-evangelist/cyberark-identity/refs/heads/main/apis.yml](https://raw.githubusercontent.com/api-evangelist/cyberark-identity/refs/heads/main/apis.yml)
+**Areas:** Identity · Identity and Access Management · SSO · Multi-Factor Authentication · Authentication · Zero Trust
 
-## Scope
+## CyberArk Identity on APIs.io
 
-- **Type:** Index
+Everything profiled for CyberArk Identity is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/cyberark-identity/](https://apis.io/providers/cyberark-identity/)** — or go straight to one of the APIs or properties below.
 
-## Tags
+### APIs (8)
 
-- Identity
-- Access Management
-- IAM
-- Single Sign-On
-- SSO
-- Multi-Factor Authentication
-- OAuth
-- Zero Trust
+- [CyberArk Identity API](https://apis.io/apis/cyberark-identity/identity-api/) — REST API for CyberArk Identity covering authentication, authorization, OAuth 2.0 token endpoints, user and role management, directory services, application…
+- [CyberArk Identity Authentication API](https://apis.io/apis/cyberark-identity/cyberark-identity-authentication-api/) — The Authentication API from CyberArk Identity — 3 operation(s) for authentication.
+- [CyberArk Identity CDirectoryService API](https://apis.io/apis/cyberark-identity/cyberark-identity-cdirectoryservice-api/) — The CDirectoryService API from CyberArk Identity — 3 operation(s) for cdirectoryservice.
+- [CyberArk Identity ExtData API](https://apis.io/apis/cyberark-identity/cyberark-identity-extdata-api/) — The ExtData API from CyberArk Identity — 1 operation(s) for extdata.
+- [CyberArk Identity Org API](https://apis.io/apis/cyberark-identity/cyberark-identity-org-api/) — The Org API from CyberArk Identity — 2 operation(s) for org.
+- [CyberArk Identity SCIM API](https://apis.io/apis/cyberark-identity/cyberark-identity-scim-api/) — The SCIM API from CyberArk Identity — 4 operation(s) for scim.
+- [CyberArk Identity UserMgmt API](https://apis.io/apis/cyberark-identity/cyberark-identity-usermgmt-api/) — The UserMgmt API from CyberArk Identity — 5 operation(s) for usermgmt.
+- [CyberArk Identity O Auth API](https://apis.io/apis/cyberark-identity/cyberark-identity-oauth-api/) — The OAuth API from CyberArk Identity — 1 operation(s) for oauth.
 
-## Timestamps
+### Published properties
 
-- **Created:** 2026-05-11
-- **Modified:** 2026-05-11
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
 
-## APIs
+#### Agentic access (1)
 
-### CyberArk Identity API
+Which operations an agent can call, which act, and which need a human in the loop.
 
-REST API for CyberArk Identity covering authentication, authorization, OAuth 2.0 token endpoints, user and role management, directory services, application provisioning, and policy operations. Supports OAuth 2.0 flows including client_credentials for non-interactive API access, plus session-based authentication via /Security/StartAuthentication and /Security/AdvanceAuthentication.
+- [Cyberark Identity Agentic Access](https://apis.io/agentic-access/cyberark-identity/cyberark-identity-agentic-access/)
 
-- **Human URL:** [https://api-docs-identity.cyberark.com/docs/identity-api-reference/before-you-begin](https://api-docs-identity.cyberark.com/docs/identity-api-reference/before-you-begin)
-- **Base URL:** `https://<tenant>.id.cyberark.cloud`
+#### Collections (8)
 
-#### Tags
+Postman and Open Collection request collections.
 
-- Identity
-- OAuth
-- Authentication
-- Authorization
-- User Management
+- [CyberArk Identity REST API](https://apis.io/collections/cyberark-identity/open-cyberark-identity/)
+- [CyberArk Identity REST Authentication API](https://apis.io/collections/cyberark-identity/open-cyberark-identity-authentication-api/)
+- [CyberArk Identity REST Authentication CDirectoryService API](https://apis.io/collections/cyberark-identity/open-cyberark-identity-cdirectoryservice-api/)
+- [CyberArk Identity REST Authentication ExtData API](https://apis.io/collections/cyberark-identity/open-cyberark-identity-extdata-api/)
+- [CyberArk Identity REST Authentication OAuth API](https://apis.io/collections/cyberark-identity/open-cyberark-identity-oauth-api/)
+- [CyberArk Identity REST Authentication Org API](https://apis.io/collections/cyberark-identity/open-cyberark-identity-org-api/)
+- [CyberArk Identity REST Authentication SCIM API](https://apis.io/collections/cyberark-identity/open-cyberark-identity-scim-api/)
+- [CyberArk Identity REST Authentication UserMgmt API](https://apis.io/collections/cyberark-identity/open-cyberark-identity-usermgmt-api/)
 
-#### Properties
+#### Security (3)
 
-- [Documentation](https://api-docs-identity.cyberark.com/docs/identity-api-reference/before-you-begin)
-- [O Auth 2.0  Overview](https://docs.cyberark.com/identity/latest/en/content/developer/oauth/about-oauth.htm)
-- [I S P S S  A P I  Authentication](https://docs.cyberark.com/ispss-access/latest/en/content/ispss/ispss-api-authentication.htm)
-- [Developer  Overview](https://docs.cyberark.com/identity/Latest/en/Content/Developer/OverviewofAPIs.htm)
-- [Postman Collection](collections/cyberark-identity.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/cyberark-identity.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+Authentication, trust centre, and vulnerability disclosure.
 
-## Common Properties
+- [Cyberark Identity Authentication](https://apis.io/security/cyberark-identity/cyberark-identity-authentication/)
+- [Cyberark Identity Domain Security](https://apis.io/security/cyberark-identity/cyberark-identity-domain-security/)
+- [Cyberark Identity Trust Center](https://apis.io/security/cyberark-identity/cyberark-identity-trust-center/)
+
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
 
 - [Website](https://www.cyberark.com/products/identity-management/)
 - [Documentation](https://docs.cyberark.com/identity/latest/en/)
-- [A P I  Docs](https://api-docs-identity.cyberark.com/)
 - [Pricing](https://www.cyberark.com/contact-us/)
-- [Sign Up](https://www.cyberark.com/try-buy/)
+- [Blog](https://www.cyberark.com/feed/)
 
-## Maintainers
+## API Evangelist rating
 
-**FN:** Kin Lane
-**Email:** kin@apievangelist.com
+**Kin Score 24.9** — emerging · rubric 0.24.0 · scored 2026-10-17
+
+| Facet | Score |
+|---|---|
+| Discoverability | 66.1 |
+| Contract quality | 46.6 |
+| Contract governance | 0.0 |
+| Operational transparency | 0.0 |
+| Developer ergonomics | 14.3 |
+| Access clarity | 21.1 |
+
+**Agent readiness 19.8** — agent-aware
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | yes |
+| Agentic Access | derived (partial credit) |
+| Reversibility Documented | — |
+| MCP Server | — |
+| Auth Clarity | bearer (partial credit) |
+| Idempotency | — |
+| Error Semantics | — |
+| OpenAPI Examples | partial |
+| Rate Limit Signal | — |
+| Event Surface Described | — |
+| Agent Skills | — |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+
+**Regulatory alignment 16.7** — Horizontal (data, software, accessibility, platform)
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/cyberark-identity/](https://apis.io/providers/cyberark-identity/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for CyberArk Identity: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/cyberark-identity/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
